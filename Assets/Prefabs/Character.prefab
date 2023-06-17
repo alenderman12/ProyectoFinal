@@ -260,7 +260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 601583d4d1670f2408d186758b8c0c96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseSpeed: 6
+  baseSpeed: 4
   manager: {fileID: 0}
   recoveryTime: 0
 --- !u!50 &8661105705686608324
@@ -286,7 +286,7 @@ Rigidbody2D:
   m_Constraints: 4
 --- !u!95 &8661105705686608322
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -303,7 +303,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!61 &8661105705686608321
 BoxCollider2D:
   m_ObjectHideFlags: 0

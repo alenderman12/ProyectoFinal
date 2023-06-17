@@ -7,11 +7,7 @@ using UnityEngine.Events;
 
 public class SceneChanger : MonoBehaviour
 {
-    private void Awake()
-    {
 
-        Time.maximumDeltaTime = 0.001f;
-    }
     [SerializeField] private float effectTime;
     [SerializeField] private bool useEffect;
     [SerializeField] private RawImage image;
@@ -23,16 +19,16 @@ public class SceneChanger : MonoBehaviour
             SaveVector3(SceneManager.GetActiveScene() + "PlayerPos", collision.transform.position);
             if (useEffect)
             {
-                StartCoroutine(SceneChangeEffect(collision));
+                StartCoroutine(SceneChangeEffect());
             }
             else
             {
                 SceneManager.LoadScene(sceneToChange);
             }
-            collision.transform.position = GetVector3(SceneManager.GetActiveScene() + "PlayerPos");
         }
     }
-    private IEnumerator SceneChangeEffect(Collider2D collision)
+
+    private IEnumerator SceneChangeEffect()
     {
         Time.timeScale = 0;
         for (float i = 0; i < 1; i += Time.unscaledDeltaTime / effectTime)
