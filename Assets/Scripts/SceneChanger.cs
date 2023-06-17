@@ -40,7 +40,7 @@ public class SceneChanger : MonoBehaviour
         Time.timeScale = 1;
     }
 
-    public void SaveVector3(string vectorKey, UnityEngine.Vector3 vector3)
+    public void SaveVector3(string vectorKey, Vector3 vector3)
     {
         float x = vector3.x;
         float y = vector3.y;
@@ -52,12 +52,12 @@ public class SceneChanger : MonoBehaviour
     }
 
 
-    public UnityEngine.Vector3 GetVector3(string vectorKey)
+    public Vector3 GetVector3(string vectorKey)
     {
         float x = PlayerPrefs.GetFloat(vectorKey + "x");
         float y = PlayerPrefs.GetFloat(vectorKey + "y");
         float z = PlayerPrefs.GetFloat(vectorKey + "z");
 
-        return new UnityEngine.Vector3(x, y, z);
+        return new Vector3(x, y, z);
     }
 }
