@@ -70,9 +70,4 @@ public class Player : MonoBehaviour
         speed = baseSpeed;
         characterState = CharacterState.idle;
     }
-
-    public void SetPlayerPosition(Vector3 position)
-    {
-        transform.position = position;
-    }
 }
