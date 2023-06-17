@@ -3,7 +3,7 @@ guid: 2951afc7888782d4a9bb6480cd75be52
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -63,6 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -1407,67 +1408,67 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      character_0: -1588809307
+      character_1: -367815387
+      character_10: -1648130616
+      character_11: -174893156
+      character_12: 1545173344
+      character_13: 1584194208
+      character_14: -1559286044
+      character_15: 229767894
+      character_16: -257887295
+      character_17: -815705020
+      character_18: -1195252859
+      character_19: 1773002955
       character_2: -1256301405
       character_20: 287317823
-      character_31: -1133933333
-      character_18: -1195252859
-      character_38: -1206109673
-      character_6: 1655093920
-      character_26: -509521381
-      character_10: -1648130616
-      character_51: -278093812
-      character_19: 1773002955
-      character_12: 1545173344
-      character_16: -257887295
-      character_28: -1861957259
-      character_37: 1374097585
-      character_27: -1448628220
-      character_23: 620797010
-      character_35: -1408593567
-      character_24: 540598120
-      character_60: -242957078
-      character_46: -1164609006
-      character_13: 1584194208
-      character_3: 150539478
-      character_52: -1770231856
-      character_55: 26006762
-      character_29: -156211273
-      character_4: 288414567
-      character_8: 2072200343
-      character_7: 1612634259
-      character_25: 766544302
-      character_41: -634717606
-      character_48: -1030785265
-      character_33: -400491825
-      character_49: 1706669099
-      character_30: 1701332285
       character_21: 561894749
-      character_11: -174893156
-      character_40: 1906819158
-      character_15: 229767894
-      character_59: -836957472
-      character_53: 436330842
-      character_1: -367815387
-      character_5: -1582318590
-      character_14: -1559286044
-      character_47: -804132725
-      character_32: -203447849
-      character_50: 1880483453
-      character_56: 1355499524
-      character_0: -1588809307
-      character_9: 84187447
       character_22: 1475335049
-      character_42: 878040663
+      character_23: 620797010
+      character_24: 540598120
+      character_25: 766544302
+      character_26: -509521381
+      character_27: -1448628220
+      character_28: -1861957259
+      character_29: -156211273
+      character_3: 150539478
+      character_30: 1701332285
+      character_31: -1133933333
+      character_32: -203447849
+      character_33: -400491825
       character_34: -1972439584
-      character_39: 1972049608
-      character_45: -656776467
+      character_35: -1408593567
       character_36: -633105938
-      character_54: 1845438304
-      character_17: -815705020
-      character_44: 576811558
-      character_58: -359727732
+      character_37: 1374097585
+      character_38: -1206109673
+      character_39: 1972049608
+      character_4: 288414567
+      character_40: 1906819158
+      character_41: -634717606
+      character_42: 878040663
       character_43: -360806617
+      character_44: 576811558
+      character_45: -656776467
+      character_46: -1164609006
+      character_47: -804132725
+      character_48: -1030785265
+      character_49: 1706669099
+      character_5: -1582318590
+      character_50: 1880483453
+      character_51: -278093812
+      character_52: -1770231856
+      character_53: 436330842
+      character_54: 1845438304
+      character_55: 26006762
+      character_56: 1355499524
       character_57: -1974209899
+      character_58: -359727732
+      character_59: -836957472
+      character_6: 1655093920
+      character_60: -242957078
+      character_7: 1612634259
+      character_8: 2072200343
+      character_9: 84187447
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

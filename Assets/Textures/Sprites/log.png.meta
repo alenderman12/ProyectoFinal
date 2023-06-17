@@ -3,7 +3,7 @@ guid: f70b759c2aae4a248ab9ffeeb9d15cc3
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -63,6 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -609,30 +610,30 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      log_21: -731133340
-      log_16: -957308311
-      log_6: -1888041967
-      log_20: -904978224
-      log_1: -1215784037
-      log_8: -1859837042
       log_0: 548891667
-      log_2: -2003014313
-      log_14: 578085939
-      log_12: -673966493
-      log_17: -916016363
-      log_7: 808081831
-      log_19: 1347133444
-      log_18: 1808810266
-      log_13: 220150986
-      log_4: -552682249
-      log_15: 75141529
-      log_9: -611532980
-      log_3: 1556028842
-      log_11: 1675718449
+      log_1: -1215784037
       log_10: 481111990
-      log_23: 1665622853
-      log_5: -179261650
+      log_11: 1675718449
+      log_12: -673966493
+      log_13: 220150986
+      log_14: 578085939
+      log_15: 75141529
+      log_16: -957308311
+      log_17: -916016363
+      log_18: 1808810266
+      log_19: 1347133444
+      log_2: -2003014313
+      log_20: -904978224
+      log_21: -731133340
       log_22: 378280096
+      log_23: 1665622853
+      log_3: 1556028842
+      log_4: -552682249
+      log_5: -179261650
+      log_6: -1888041967
+      log_7: 808081831
+      log_8: -1859837042
+      log_9: -611532980
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

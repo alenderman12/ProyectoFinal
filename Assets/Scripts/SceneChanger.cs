@@ -1,38 +1,25 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Timeline;
 using UnityEngine.UI;
-using UnityEngine.Playables;
-using System.Numerics;
 using System;
+using UnityEngine.Events;
 
 public class SceneChanger : MonoBehaviour
 {
+    private void Awake()
+    {
+
+        Time.maximumDeltaTime = 0.001f;
+    }
     [SerializeField] private float effectTime;
     [SerializeField] private bool useEffect;
     [SerializeField] private RawImage image;
     [SerializeField] private string sceneToChange;
-    private Player player;
-    public Action<UnityEngine.Vector3> setPlayerpos;
-
-    void Awake()
-    {
-        setPlayerpos = player.SetPlayerPosition;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            player = collision.GetComponent<Player>();
             SaveVector3(SceneManager.GetActiveScene() + "PlayerPos", collision.transform.position);
             if (useEffect)
             {
@@ -55,7 +42,6 @@ public class SceneChanger : MonoBehaviour
         }
         SceneManager.LoadScene(sceneToChange);
         Time.timeScale = 1;
-        setPlayerpos.Invoke(GetVector3(SceneManager.GetActiveScene() + "PlayerPos"));
     }
 
     public void SaveVector3(string vectorKey, UnityEngine.Vector3 vector3)
