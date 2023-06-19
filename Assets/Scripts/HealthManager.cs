@@ -1,12 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class HealthManager : MonoBehaviour
 {
     [SerializeField] private float maxHealth;
+    [SerializeField] private GameObject heartContainer;
+    private SpriteRenderer[] hearts;
+    private float health;
 
-    public float GetHealth() => maxHealth;
+    public float GetHealth() => health;
+
+    private void Awake()
+    {
+        hearts = heartContainer.GetComponentsInChildren<SpriteRenderer>();
+        health = maxHealth;
+        RefreshHeartAnimation(health);
+    }
     public void Damage(float healthRemoved)
     {
         if (maxHealth - healthRemoved <= 0)
@@ -15,25 +27,32 @@ public class HealthManager : MonoBehaviour
         }
         else
         {
-            maxHealth -= healthRemoved;
+            health -= healthRemoved;
         }
+        RefreshHeartAnimation(health);
     }
 
     public void Heal(float healthAdded)
     {
-        if (maxHealth + healthAdded >= maxHealth)
+        if (health + healthAdded >= maxHealth)
         {
-            Death();
+            health = maxHealth;
         }
         else
         {
-            maxHealth += healthAdded;
+            health += healthAdded;
         }
+        RefreshHeartAnimation(health);
     }
 
     public void Death()
     {
-        maxHealth = 0;
+        health = 0;
         print("Toy Muerto");
+    }
+
+    private void RefreshHeartAnimation(float life)
+    {
+
     }
 }

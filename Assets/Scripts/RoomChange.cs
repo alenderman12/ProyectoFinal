@@ -16,12 +16,7 @@ public class RoomChange : MonoBehaviour
             {
                 camera.gameObject.SetActive(!camera.gameObject.activeInHierarchy);
             }
+            Time.timeScale = 1;
         }
-    }
-
-    private IEnumerator FixPlayerPosition()
-    {
-        
-        yield return null;
     }
 }
