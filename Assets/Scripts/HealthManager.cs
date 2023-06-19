@@ -1,35 +1,37 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.Animations;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class HealthManager : MonoBehaviour
 {
     [SerializeField] private float maxHealth;
-    [SerializeField] private GameObject heartContainer;
-    private SpriteRenderer[] hearts;
+    [SerializeField] private GameObject healthContainer;
+    [SerializeField] private Image[] hearts;
+    [SerializeField] private Sprite[] heartSprites;
     private float health;
 
     public float GetHealth() => health;
 
     private void Awake()
     {
-        hearts = heartContainer.GetComponentsInChildren<SpriteRenderer>();
         health = maxHealth;
-        RefreshHeartAnimation(health);
+        RefreshHeartAnimation();
     }
-    public void Damage(float healthRemoved)
+    public void Damage(float healthRemoved/*, bool recoveryTime*/)
     {
-        if (maxHealth - healthRemoved <= 0)
+        if (health - healthRemoved <= 0)
         {
             Death();
         }
         else
         {
             health -= healthRemoved;
+            /*if (recoveryTime)
+            {
+                RecoveryTime();
+            }*/
         }
-        RefreshHeartAnimation(health);
+        RefreshHeartAnimation();
     }
 
     public void Heal(float healthAdded)
@@ -42,7 +44,7 @@ public class HealthManager : MonoBehaviour
         {
             health += healthAdded;
         }
-        RefreshHeartAnimation(health);
+        RefreshHeartAnimation();
     }
 
     public void Death()
@@ -51,8 +53,28 @@ public class HealthManager : MonoBehaviour
         print("Toy Muerto");
     }
 
-    private void RefreshHeartAnimation(float life)
+    private void RecoveryTime()
     {
 
+    }
+
+    private void RefreshHeartAnimation()
+    {
+        for (int i = 0; i < hearts.Length; i++)
+        {
+            float heartsFill = health / 2;
+            if (i <= heartsFill-1)
+            {
+                hearts[i].sprite = heartSprites[0];
+            }
+            else if (i >= heartsFill)
+            {
+                hearts[i].sprite = heartSprites[2];
+            }
+            else
+            {
+                hearts[i].sprite = heartSprites[1];
+            }
+        }
     }
 }
