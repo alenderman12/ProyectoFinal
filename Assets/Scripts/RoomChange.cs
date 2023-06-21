@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class RoomChange : MonoBehaviour
 {
-    [SerializeField] CinemachineVirtualCamera[] cameras;
+    [SerializeField] private CinemachineVirtualCamera[] cameras;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

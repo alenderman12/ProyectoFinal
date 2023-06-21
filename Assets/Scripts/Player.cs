@@ -13,17 +13,19 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private int baseSpeed;
     [SerializeField] private GameManager manager;
-    [SerializeField] private float recoveryTime;
+    [SerializeField] private float damage;
+    [SerializeField] private float hitForce;
     public static CharacterState characterState;
     private float speed;
     private Rigidbody2D rb;
     private Animator animator;
     private Vector3 direction;
-    private float damage;
+    private Knockback knockbackController;
     // Start is called before the first frame update
     void Start()
     {
         speed = baseSpeed;
+        knockbackController = GetComponent<Knockback>();
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
@@ -66,5 +68,12 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(.35f);
         speed = baseSpeed;
         characterState = CharacterState.idle;
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            knockbackController.KnockbackAction((transform.position - collision.transform.position).normalized, hitForce, .15f, collision.rigidbody);
+        }
     }
 }

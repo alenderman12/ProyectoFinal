@@ -9,10 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a70ea46b37db874184d200c7ab88fe8, type: 3}
+  m_Script: {fileID: 11500000, guid: 5e44fd2cc26853d4fbe2c6b791dedefb, type: 3}
   m_Name: Boss
   m_EditorClassIdentifier: 
-  speed: 3
-  auditionRange: 8
-  damage: 70
-  maxHealth: 400
+  speed: 0
+  hitStrength: 0
+  auditionRange: 0
+  damage: 0
+  maxHealth: 0

@@ -165,11 +165,12 @@ GameObject:
   m_Component:
   - component: {fileID: 8661105705686608327}
   - component: {fileID: 8661105705686608328}
-  - component: {fileID: 8661105705686608325}
   - component: {fileID: 8661105705686608324}
   - component: {fileID: 8661105705686608322}
   - component: {fileID: 8661105705686608321}
   - component: {fileID: -6549893320699449068}
+  - component: {fileID: 8661105705686608325}
+  - component: {fileID: 8924294675125485028}
   m_Layer: 0
   m_Name: Character
   m_TagString: Player
@@ -248,21 +249,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8661105705686608325
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8661105705686608330}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 601583d4d1670f2408d186758b8c0c96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  baseSpeed: 4
-  manager: {fileID: 0}
-  recoveryTime: 0
 --- !u!50 &8661105705686608324
 Rigidbody2D:
   serializedVersion: 4
@@ -427,3 +413,61 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8661105705686608325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8661105705686608330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 601583d4d1670f2408d186758b8c0c96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseSpeed: 5
+  manager: {fileID: 0}
+  damage: 4
+  hitForce: 10
+--- !u!114 &8924294675125485028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8661105705686608330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7df13ed53557e249a450262d996778d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnBegin:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnFinished:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2

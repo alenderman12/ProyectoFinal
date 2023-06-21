@@ -25,12 +25,12 @@ public class GameManager : MonoBehaviour
     public float GetHealth() => healthManager.GetHealth();
 
 
-    public void RemoveHealth(int healthRemoved)
+    public void RemoveHealth(float healthRemoved)
     {
         healthManager.Damage(healthRemoved);
     }
 
-    public void AddHealth(int healthAdded)
+    public void AddHealth(float healthAdded)
     {
         healthManager.Heal(healthAdded);
     }
