@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WeakEnemy
   m_EditorClassIdentifier: 
   speed: 2.5
-  hitStrength: 10
+  hitStrength: 15
   auditionRange: 4
   damage: 1
-  maxHealth: 10
+  maxHealth: 12

@@ -4,8 +4,7 @@ using UnityEngine.Events;
 
 public class Knockback : MonoBehaviour
 {
-    [SerializeField] private UnityEvent OnBegin;
-    [SerializeField] private UnityEvent OnFinished;
+    [SerializeField] private UnityEvent OnBegin, OnFinished;
     public void KnockbackAction(Vector3 direction, float force, float inactiveTime, Rigidbody2D rb)
     {
         OnBegin?.Invoke();
@@ -16,7 +15,7 @@ public class Knockback : MonoBehaviour
     private IEnumerator Reset(float time, Rigidbody2D rb)
     {
         yield return new WaitForSeconds(time);
-        rb.velocity = Vector3.zero;
+        rb.velocity = Vector2.zero;
         OnFinished?.Invoke();
     }
 }

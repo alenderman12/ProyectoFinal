@@ -1,6 +1,6 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Events;
 
 public class HealthManager : MonoBehaviour
 {
@@ -53,9 +53,9 @@ public class HealthManager : MonoBehaviour
         print("Toy Muerto");
     }
 
-    private void RecoveryTime()
+    private IEnumerator RecoveryTime()
     {
-
+        yield return null;
     }
 
     private void RefreshHeartAnimation()

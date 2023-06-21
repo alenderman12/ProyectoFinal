@@ -69,11 +69,17 @@ public class Player : MonoBehaviour
         speed = baseSpeed;
         characterState = CharacterState.idle;
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.tag == "Enemy")
         {
-            knockbackController.KnockbackAction((transform.position - collision.transform.position).normalized, hitForce, .15f, collision.rigidbody);
+            collision.gameObject.GetComponent<Knockback>().KnockbackAction((collision.transform.position - transform.position).normalized, hitForce, .15f, collision.attachedRigidbody);
+            collision.GetComponent<LogEnemy>().RemoveLife(damage);
+        }
+        else if (collision.tag == "Heart")
+        {
+            collision.gameObject.GetComponent<GrabbableItem>().ItemGrab();
+            manager.AddHealth(2);
         }
     }
 }
