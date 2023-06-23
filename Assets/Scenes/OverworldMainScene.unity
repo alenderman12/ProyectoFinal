@@ -37084,10 +37084,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3340107494285096329, guid: 086d99b6ca16b3b4d82a44a796f93bbe, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3340107494285096329, guid: 086d99b6ca16b3b4d82a44a796f93bbe, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3340107494285096331, guid: 086d99b6ca16b3b4d82a44a796f93bbe, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 548891667, guid: f70b759c2aae4a248ab9ffeeb9d15cc3, type: 3}
+      propertyPath: m_Size.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3340107494285096331, guid: 086d99b6ca16b3b4d82a44a796f93bbe, type: 3}
+      propertyPath: m_Size.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3340107494285096331, guid: 086d99b6ca16b3b4d82a44a796f93bbe, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3340107494285096331, guid: 086d99b6ca16b3b4d82a44a796f93bbe, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3340107494285096332, guid: 086d99b6ca16b3b4d82a44a796f93bbe, type: 3}
       propertyPath: m_Name
       value: LogEnemy
@@ -37351,10 +37371,6 @@ PrefabInstance:
       propertyPath: manager
       value: 
       objectReference: {fileID: 672840126}
-    - target: {fileID: 8661105705686608325, guid: f8357366a40c801419447f76413a2903, type: 3}
-      propertyPath: hitForce
-      value: 15
-      objectReference: {fileID: 0}
     - target: {fileID: 8661105705686608327, guid: f8357366a40c801419447f76413a2903, type: 3}
       propertyPath: m_RootOrder
       value: 4

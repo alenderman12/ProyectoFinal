@@ -6,7 +6,8 @@ public enum CharacterState
     idle,
     walking,
     interacting,
-    attacking
+    attacking,
+    changingRoom
 }
 
 public class Player : MonoBehaviour
@@ -33,25 +34,28 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        direction.x = Input.GetAxisRaw("Horizontal");
-        direction.y = Input.GetAxisRaw("Vertical");
-        rb.velocity = (speed) * direction.normalized;
-        if (characterState != CharacterState.attacking && characterState != CharacterState.interacting)
+        if (characterState != CharacterState.changingRoom)
         {
-            if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
+            direction.x = Input.GetAxisRaw("Horizontal");
+            direction.y = Input.GetAxisRaw("Vertical");
+            rb.velocity = (speed) * direction.normalized;
+            if (characterState != CharacterState.attacking && characterState != CharacterState.interacting)
             {
-                animator.SetFloat("XMovement", direction.x);
-                animator.SetFloat("YMovement", direction.y);
-                animator.SetBool("isMoving", true);
-                characterState = CharacterState.walking;
-            }
-            else
-            {
-                characterState = CharacterState.idle;
-                animator.SetBool("isMoving", false);
+                if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
+                {
+                    animator.SetFloat("XMovement", direction.x);
+                    animator.SetFloat("YMovement", direction.y);
+                    animator.SetBool("isMoving", true);
+                    characterState = CharacterState.walking;
+                }
+                else
+                {
+                    characterState = CharacterState.idle;
+                    animator.SetBool("isMoving", false);
+                }
             }
         }
-        if (Input.GetKeyDown(KeyCode.X) && characterState != CharacterState.interacting && characterState != CharacterState.attacking)
+        if (Input.GetKeyDown(KeyCode.X) && characterState != CharacterState.interacting && characterState != CharacterState.attacking && characterState != CharacterState.changingRoom)
         {
             StartCoroutine(Attack());
         }

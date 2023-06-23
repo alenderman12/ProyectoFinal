@@ -9,12 +9,15 @@ public class RoomChange : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Time.timeScale = 0;
+            Player.characterState = CharacterState.changingRoom;
             foreach (var camera in cameras)
             {
                 camera.gameObject.SetActive(!camera.gameObject.activeInHierarchy);
             }
-            Time.timeScale = 1;
         }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        Player.characterState = CharacterState.idle;
     }
 }

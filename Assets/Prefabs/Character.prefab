@@ -428,7 +428,7 @@ MonoBehaviour:
   baseSpeed: 5
   manager: {fileID: 0}
   damage: 4
-  hitForce: 10
+  hitForce: 15
 --- !u!114 &8924294675125485028
 MonoBehaviour:
   m_ObjectHideFlags: 0
