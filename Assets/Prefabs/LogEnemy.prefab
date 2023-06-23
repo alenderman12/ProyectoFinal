@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3340107494285096333}
   - component: {fileID: 3340107494285096326}
   - component: {fileID: 292110354462796527}
+  - component: {fileID: 820994651114342515}
   m_Layer: 0
   m_Name: LogEnemy
   m_TagString: Enemy
@@ -148,10 +149,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ce032eac56cd36448519e5de73a8bb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manager: {fileID: 0}
+  manager: {fileID: 841275473722389126, guid: 96f6c2925c54db94bb6a138b49320097, type: 3}
   KnockbackForce: 4
   enemyType: {fileID: 11400000, guid: bf9616ee842e2fc448b211bc8f3e6c75, type: 2}
   knockbackController: {fileID: 3340107494285096326}
+  heart: {fileID: 5113514076121451178, guid: 3ea06ad399ece6c4abb56c02fcc9ddb6, type: 3}
 --- !u!114 &3340107494285096326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,3 +217,25 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!195 &820994651114342515
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3340107494285096332}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 1
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 1
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

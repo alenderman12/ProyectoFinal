@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2.5
   hitStrength: 15
-  auditionRange: 4
+  auditionRange: 6
   damage: 1
   maxHealth: 12

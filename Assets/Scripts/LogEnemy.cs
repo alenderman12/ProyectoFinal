@@ -1,17 +1,8 @@
 using System.Collections;
 using UnityEngine;
 
-public class LogEnemy : MonoBehaviour
+public class LogEnemy : Enemy
 {
-    [SerializeField] private GameManager manager;
-    [SerializeField] private float KnockbackForce;
-    [SerializeField] private EnemyData enemyType;
-    [SerializeField] private Knockback knockbackController;
-    private bool isAlive;
-    private float enemyHealth;
-    private Transform playerPosition;
-    private Animator animator;
-    private Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +18,7 @@ public class LogEnemy : MonoBehaviour
     {
         if (isAlive)
         {
-            if (!Physics2D.Raycast(transform.position, playerPosition.position, enemyType.auditionRange))
+            if (/*!Physics2D.Raycast(transform.position, playerPosition.position, enemyType.auditionRange)*/ (transform.position - playerPosition.position).magnitude <= enemyType.auditionRange)
             {
                 animator.SetBool("isMoving", true);
                 animator.SetFloat("PlayerDirectionX", rb.velocity.normalized.x);
@@ -44,28 +35,7 @@ public class LogEnemy : MonoBehaviour
 
     public void RemoveLife(float lifeRemoved)
     {
-        enemyHealth -= lifeRemoved;
-        GetComponent<SpriteRenderer>().color = Color.red;
-        if (enemyHealth < 0)
-        {
-            isAlive = false;
-            animator.SetBool("isAlive", false);
-            StartCoroutine(WaitForAnimation());
-        }
-        StartCoroutine(ColorController());
-    }
-
-    private IEnumerator ColorController() 
-    {
-        yield return new WaitForSeconds(.10f);
-        GetComponent<SpriteRenderer>().color = Color.white;
-    }
-
-    private IEnumerator WaitForAnimation()
-    {
-        yield return new WaitForSeconds(.517f);
-        isAlive = true;
-        Destroy(gameObject);
+        Damage(lifeRemoved);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -75,11 +45,5 @@ public class LogEnemy : MonoBehaviour
             collision.gameObject.GetComponent<Knockback>().KnockbackAction((collision.transform.position - transform.position).normalized, enemyType.hitStrength, .15f, collision.rigidbody);
             manager.RemoveHealth(enemyType.damage);
         }
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.green;
-        Gizmos.DrawLine(transform.position, playerPosition.position);
     }
 }
