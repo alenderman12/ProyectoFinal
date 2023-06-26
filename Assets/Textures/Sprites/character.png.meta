@@ -204,10 +204,10 @@ TextureImporter:
       name: character_4
       rect:
         serializedVersion: 2
-        x: 81
-        y: 228
-        width: 15
-        height: 22
+        x: 80
+        y: 224
+        width: 16
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -225,10 +225,10 @@ TextureImporter:
       name: character_5
       rect:
         serializedVersion: 2
-        x: 97
-        y: 228
-        width: 15
-        height: 22
+        x: 96
+        y: 224
+        width: 16
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1255,9 +1255,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 112
-        y: 228
+        y: 224
         width: 16
-        height: 22
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1397,6 +1397,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: character_61
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 224
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bffb2eafdef175549978e3a26a47174c
+      internalID: 1407426225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -1466,6 +1487,7 @@ TextureImporter:
       character_59: -836957472
       character_6: 1655093920
       character_60: -242957078
+      character_61: 1688387445
       character_7: 1612634259
       character_8: 2072200343
       character_9: 84187447

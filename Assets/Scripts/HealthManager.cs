@@ -1,60 +1,69 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class HealthManager : MonoBehaviour
 {
     [SerializeField] private float maxHealth;
     [SerializeField] private GameObject healthContainer;
-    [SerializeField] private Image[] hearts;
     [SerializeField] private Sprite[] heartSprites;
-    private float health;
+    [SerializeField] private FloatValue health;
+    private Image[] hearts;
 
-    public float GetHealth() => health;
+    public float GetHealth() => health.value;
 
     private void Awake()
     {
-        health = maxHealth;
+        hearts = healthContainer.GetComponentsInChildren<Image>();
         RefreshHeartAnimation();
     }
     public void Damage(float healthRemoved/*, bool recoveryTime*/)
     {
-        if (health - healthRemoved <= 0)
+        if (health.value - healthRemoved <= 0)
         {
             Death();
         }
         else
         {
-            health -= healthRemoved;
+            health.value -= healthRemoved;
             /*if (recoveryTime)
             {
                 RecoveryTime();
             }*/
         }
         RefreshHeartAnimation();
+        if (health.value <= 2)
+        {
+            healthContainer.GetComponent<AudioSource>().loop = true;
+            healthContainer.GetComponent<AudioSource>().Play();
+        }
     }
 
     public void Heal(float healthAdded)
     {
-        if (health + healthAdded >= maxHealth)
+        if (health.value + healthAdded >= maxHealth)
         {
-            health = maxHealth;
+            health.value = maxHealth;
         }
         else
         {
-            health += healthAdded;
+            health.value += healthAdded;
         }
+        healthContainer.GetComponent<AudioSource>().loop = false;
         RefreshHeartAnimation();
     }
 
     public void Death()
     {
-        health = 0;
-        print("Toy Muerto");
+        health.value = 8;
+        SceneManager.LoadScene("MainMenu");
     }
 
-    private IEnumerator RecoveryTime()
+    private IEnumerator DeathAnimation()
     {
+
         yield return null;
     }
 
@@ -62,7 +71,8 @@ public class HealthManager : MonoBehaviour
     {
         for (int i = 0; i < hearts.Length; i++)
         {
-            float heartsFill = health / 2;
+            print(hearts[i]);
+            float heartsFill = health.value / 2;
             if (i <= heartsFill-1)
             {
                 hearts[i].sprite = heartSprites[0];

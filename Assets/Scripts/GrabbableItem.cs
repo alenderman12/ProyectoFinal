@@ -8,6 +8,7 @@ public class GrabbableItem : MonoBehaviour
     public void ItemGrab()
     {
         OnItemGrab?.Invoke();
+        GetComponent<AudioSource>().Play();
         Destroy(gameObject);
     }
 }

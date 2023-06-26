@@ -16,6 +16,7 @@ public class EnemyRoomController : MonoBehaviour
         {
             for (int i = 0; i < enemies.Count; i++)
             {
+                print("Activated [i] enemy");
                 enemies[i].SetActive(true);
             }
         }
@@ -25,6 +26,7 @@ public class EnemyRoomController : MonoBehaviour
     {
         if (enemies.Count == 0)
         {
+            print("Bro have no enemies");
             OnFinish?.Invoke();
             Destroy(gameObject);
         }
@@ -32,9 +34,15 @@ public class EnemyRoomController : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        StartCoroutine(WaitForEnemyAnim());
+    }
+
+    private IEnumerator WaitForEnemyAnim()
+    {
+        yield return new WaitForSeconds(1);
         for (int i = 0; i < enemies.Count; i++)
         {
-            if (enemies[i] != null)
+            if (enemies[i] == null)
             {
                 enemies.Remove(enemies[i]);
             }

@@ -13,7 +13,6 @@ public enum CharacterState
 public class Player : MonoBehaviour
 {
     [SerializeField] private int baseSpeed;
-    [SerializeField] private GameManager manager;
     [SerializeField] private float damage;
     [SerializeField] private float hitForce;
     public static CharacterState characterState;
@@ -83,7 +82,7 @@ public class Player : MonoBehaviour
         else if (collision.tag == "Heart")
         {
             collision.gameObject.GetComponent<GrabbableItem>().ItemGrab();
-            manager.AddHealth(2);
+            GameManager.instance.AddHealth(2);
         }
     }
 }

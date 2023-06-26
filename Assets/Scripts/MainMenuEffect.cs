@@ -9,12 +9,7 @@ public class MainMenuEffect : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] private GameObject text;
     [SerializeField] private float timeToToogle;
-    [SerializeField] private GameManager manager;
     private float time;
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()

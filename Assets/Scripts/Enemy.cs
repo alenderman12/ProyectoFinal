@@ -1,9 +1,9 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] protected GameManager manager;
     [SerializeField] protected float KnockbackForce;
     [SerializeField] protected EnemyData enemyType;
     [SerializeField] protected Knockback knockbackController;
@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
         GetComponent<SpriteRenderer>().color = Color.red;
         if (enemyHealth < 0)
         {
-            if (manager.GetHealth() != 8 && Random.Range(0, 100) < 49)
+            if (GameManager.instance.GetHealth() != 8 && Random.Range(0, 100) < 30)
             {
                 Instantiate(heart, transform.position, Quaternion.identity);
             }

@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class LogEnemy : Enemy
 {
@@ -43,7 +44,7 @@ public class LogEnemy : Enemy
         if (collision.gameObject.tag == "Player")
         {
             collision.gameObject.GetComponent<Knockback>().KnockbackAction((collision.transform.position - transform.position).normalized, enemyType.hitStrength, .15f, collision.rigidbody);
-            manager.RemoveHealth(enemyType.damage);
+            GameManager.instance.RemoveHealth(enemyType.damage);
         }
     }
 }
