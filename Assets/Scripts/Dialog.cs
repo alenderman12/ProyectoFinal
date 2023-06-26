@@ -8,11 +8,13 @@ public class Dialog : MonoBehaviour
     [SerializeField] private GameObject dialog;
     [TextArea(3,20)] [SerializeField] private string[] texts;
     [SerializeField] private float baseWordTime;
+    public static bool dialogEnded;
     private float wordTime;
 
 
     private void Start()
     {
+        dialogEnded = false;
         wordTime = baseWordTime;
         WriteDialog();
     }
@@ -42,7 +44,7 @@ public class Dialog : MonoBehaviour
             wordTime = baseWordTime;
             dialog.GetComponentInChildren<TMP_Text>().text = "";
         }
-
+        dialogEnded = true;
         this.dialog.SetActive(false);
         Player.characterState = CharacterState.idle;
     }

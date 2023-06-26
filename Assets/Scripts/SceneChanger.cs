@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -14,27 +15,32 @@ public class SceneChanger : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            SaveVector3(SceneManager.GetActiveScene() + "PlayerPos", collision.transform.position);
-            if (useEffect)
-            {
-                StartCoroutine(SceneChangeEffect());
-            }
-            else
-            {
-                SceneManager.LoadScene(sceneToChange);
-            }
+            ChangeScene(useEffect, sceneToChange, effectTime, image);
         }
     }
 
-    private IEnumerator SceneChangeEffect()
+    public void ChangeScene(bool m_useEffect, string m_sceneToChange, float m_effectTime, RawImage m_image)
+    {
+        if (m_useEffect)
+        {
+            StopAllCoroutines();
+            StartCoroutine(SceneChangeEffect(m_sceneToChange, m_effectTime, m_image));
+        }
+        else
+        {
+            SceneManager.LoadScene(m_sceneToChange);
+        }
+    }
+
+    private IEnumerator SceneChangeEffect(string m_sceneToChange, float m_effectTime, RawImage m_image)
     {
         Time.timeScale = 0;
-        for (float i = 0; i < 1; i += Time.unscaledDeltaTime / effectTime)
+        for (float i = 0; i < 1; i += Time.unscaledDeltaTime / m_effectTime)
         {
-            image.color += new Color(0, 0, 0, Time.unscaledDeltaTime / effectTime);
+            m_image.color += new Color(0, 0, 0, Time.unscaledDeltaTime / m_effectTime);
             yield return new WaitForEndOfFrame();
         }
-        SceneManager.LoadScene(sceneToChange);
+        SceneManager.LoadScene(m_sceneToChange);
         Time.timeScale = 1;
     }
 

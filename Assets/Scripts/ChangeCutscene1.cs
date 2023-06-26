@@ -3,20 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ChangeCutscene : MonoBehaviour
+public class ChangeCutscene1 : MonoBehaviour
 {
     [SerializeField] private GameObject signal;
     [SerializeField] private string sceneName;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
-        if (!signal.activeInHierarchy)
+        print(Player.characterState);
+        if (Dialog.dialogEnded)
         {
             SceneManager.LoadScene(sceneName);
         }

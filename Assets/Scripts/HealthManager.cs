@@ -1,8 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Windows;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Windows;
+using Input = UnityEngine.Input;
 
 public class HealthManager : MonoBehaviour
 {
@@ -10,6 +13,9 @@ public class HealthManager : MonoBehaviour
     [SerializeField] private GameObject healthContainer;
     [SerializeField] private Sprite[] heartSprites;
     [SerializeField] private FloatValue health;
+    [SerializeField] private Animator playerAnimator;
+    [SerializeField] private SceneChanger sceneChanger;
+    [SerializeField] private RawImage sceneChangerImage;
     private Image[] hearts;
 
     public float GetHealth() => health.value;
@@ -23,6 +29,8 @@ public class HealthManager : MonoBehaviour
     {
         if (health.value - healthRemoved <= 0)
         {
+            health.value = 0;
+            RefreshHeartAnimation();
             Death();
         }
         else
@@ -57,21 +65,27 @@ public class HealthManager : MonoBehaviour
 
     public void Death()
     {
-        health.value = 8;
-        SceneManager.LoadScene("MainMenu");
+        healthContainer.GetComponent<AudioSource>().Stop();
+        GetComponent<AudioSource>().Play();
+        StartCoroutine(DeathAnimation());
     }
 
     private IEnumerator DeathAnimation()
     {
-
-        yield return null;
+        playerAnimator.SetBool("isAlive", false);
+        yield return new WaitForEndOfFrame();
+        playerAnimator.SetBool("isAlive", true);
+        Time.timeScale = 0f;
+        yield return new WaitForSecondsRealtime(.267f);
+        yield return new WaitUntil(() => Input.anyKeyDown);
+        health.value = 8;
+        sceneChanger.ChangeScene(true, "MainMenu", .5f, sceneChangerImage);
     }
 
     private void RefreshHeartAnimation()
     {
         for (int i = 0; i < hearts.Length; i++)
         {
-            print(hearts[i]);
             float heartsFill = health.value / 2;
             if (i <= heartsFill-1)
             {

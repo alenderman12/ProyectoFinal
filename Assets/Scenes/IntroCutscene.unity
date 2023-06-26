@@ -508,7 +508,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -3.7982, y: 233.02}
-  m_SizeDelta: {x: 2000, y: 2000}
+  m_SizeDelta: {x: 2034.74, y: 2000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &622537714
 MonoBehaviour:
@@ -824,7 +824,12 @@ MonoBehaviour:
   - a normal guy
   - He was happy in his home, away from everything and everyone.
   - But one day...
-  - everything changed
+  - everything changed.
+  - A selfish millionare set his castlle just beside his house interrupting his peaceful
+    life
+  - But one night he heard something...
+  - A voice in his head told him to go to the scary forest to meet the sword that
+    will crown him king and kick the excentirc millionare
   baseWordTime: 0.1
 --- !u!4 &1410630240
 Transform:
@@ -1108,6 +1113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   signal: {fileID: 170113352}
+  sceneName: MainHouse
 --- !u!82 &2113546039
 AudioSource:
   m_ObjectHideFlags: 0
